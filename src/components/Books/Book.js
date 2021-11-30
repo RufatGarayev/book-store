@@ -5,7 +5,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const Book = ({ book }) => {
     return (
         <Card sx={{ maxWidth: 345, margin: "13px 0px" }}>
-            <CardActionArea sx={{ padding: "10px" }}>
+            <CardActionArea sx={{ padding: "0 10px 20px" }}>
                 <CardMedia
                     component="img"
                     height="350"

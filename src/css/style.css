@@ -2,4 +2,43 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none;
+}
+
+.pagination {
+  padding-top: 7px;
+}
+
+.pagination li {
+  margin-right: 10px;
+}
+
+.pagination li button {
+  padding: 0;
+  border-radius: 2px;
+  min-width: 32px;
+  height: 32px;
+  line-height: 17px;
+  font-size: 14px;
+}
+
+.pagination li button:hover {
+  color: white;
+  background-color: #0D6EFD;
+  border: 1px solid #0D6EFD;
+}
+
+.pagination li button:focus {
+  box-shadow: none !important;
+}
+
+.arrow {
+  font-size: 18px;
+  width: 32px;
+}
+
+.active button {
+  color: white;
+  background-color: #0D6EFD;
+  border: 1px solid #0D6EFD;
 }

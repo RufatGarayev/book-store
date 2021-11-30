@@ -1,17 +1,24 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Book from './Book';
 import CartContext from "../../contexts/cart/CartContext";
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, Box } from '@mui/material';
+import Pagination from "./Pagination";
 
 const Books = () => {
     const { books, getBooks } = useContext(CartContext);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [booksPerPage] = useState(8);
+    const indexOfLastBook = currentPage * booksPerPage;
+    const indexOfFirstBook = indexOfLastBook - booksPerPage;
+    const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+    const totalPagesNum = Math.ceil(books.length / booksPerPage);
 
     useEffect(() => {
         getBooks();
     }, []);
 
     return (
-        <div className="books">
+        <div className="books" style={{ padding: "100px 0 40px" }}>
             <Container maxWidth="lg">
                 <Grid
                     container
@@ -19,13 +26,13 @@ const Books = () => {
                     columns={{ xs: 4, sm: 8, md: 12 }}
                 >
                     {
-                        books.map((book) => (
+                        currentBooks.map((book) => (
                             <Grid
                                 item
                                 xs={4}
                                 sm={4}
                                 md={3}
-                                key={book.id}
+                                key={book.isbn13}
                                 style={{ display: "flex", justifyContent: "center" }}
                             >
                                 <Book book={book} />
@@ -34,6 +41,12 @@ const Books = () => {
                     }
                 </Grid>
             </Container>
+            <Box py={3} display="flex" justifyContent="center">
+                <Pagination
+                    pages={totalPagesNum}
+                    setCurrentPage={setCurrentPage}
+                />
+            </Box>
         </div>
     );
 };
