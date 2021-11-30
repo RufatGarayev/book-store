@@ -1,13 +1,29 @@
 import React from 'react';
 import Header from './components/Header/Header';
-import Books from './components/Books/Books';
+import Home from './pages/Home';
+import ShoppingCart from './pages/ShoppingCart';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import BookContextProvider from '../src/contexts/BookContext';
 
 const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <Books />
-    </div>
+    <BookContextProvider>
+      <Router>
+        <div className="App">
+          <header>
+            <Header />
+          </header>
+
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} exact />
+              <Route path="/cart" element={<ShoppingCart />} />
+            </Routes>
+          </main>
+
+        </div>
+      </Router>
+    </BookContextProvider>
   );
 };
 

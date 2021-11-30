@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { BookContext } from "../../contexts/BookContext";
 
 const Book = ({ book }) => {
+    const { addBook } = useContext(BookContext);
+
     return (
         <Card sx={{ maxWidth: 345, margin: "13px 0px" }}>
             <CardActionArea sx={{ padding: "0 10px 20px" }}>
@@ -25,7 +28,7 @@ const Book = ({ book }) => {
                         variant="subtitle1"
                         component="div"
                         align="center"
-                        style={{fontWeight: "700"}}
+                        style={{ fontWeight: "700" }}
                     >
                         {book.price}
                     </Typography>
@@ -37,6 +40,7 @@ const Book = ({ book }) => {
                         variant="contained"
                         style={{ width: "100%", padding: "8px 10px" }}
                         endIcon={<ShoppingCartIcon style={{ fontSize: "15px", marginBottom: "2px" }} />}
+                        onClick={() => addBook(book)}
                     >
                         Add To Cart
                     </Button>

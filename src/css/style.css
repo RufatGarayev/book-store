@@ -5,6 +5,12 @@
   list-style: none;
 }
 
+button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
 .pagination {
   padding-top: 7px;
 }
@@ -24,8 +30,8 @@
 
 .pagination li button:hover {
   color: white;
-  background-color: #0D6EFD;
-  border: 1px solid #0D6EFD;
+  background-color: #0d6efd;
+  border: 1px solid #0d6efd;
 }
 
 .pagination li button:focus {
@@ -39,6 +45,6 @@
 
 .active button {
   color: white;
-  background-color: #0D6EFD;
-  border: 1px solid #0D6EFD;
+  background-color: #0d6efd;
+  border: 1px solid #0d6efd;
 }

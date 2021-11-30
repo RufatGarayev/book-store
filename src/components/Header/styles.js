@@ -2,6 +2,7 @@ import { alpha, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     title: {
+        color: "#fff",
         display: 'none',
         [theme.breakpoints.up('sm')]: {
             display: 'block',

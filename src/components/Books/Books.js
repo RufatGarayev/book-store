@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import Book from './Book';
-import CartContext from "../../contexts/cart/CartContext";
+import { BookContext } from "../../contexts/BookContext";
 import { Container, Grid, Box } from '@mui/material';
 import Pagination from "./Pagination";
 
 const Books = () => {
-    const { books, getBooks } = useContext(CartContext);
+    const { books, getBooks } = useContext(BookContext);
     const [currentPage, setCurrentPage] = useState(1);
     const [booksPerPage] = useState(8);
     const indexOfLastBook = currentPage * booksPerPage;
