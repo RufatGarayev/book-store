@@ -24,7 +24,7 @@ const BookContextProvider = (props) => {
     };
 
     const addBook = (book) => {
-        setCart([...cart, book]);
+        setCart([...cart, book])
     };
 
     const removeBook = (isbn13) => {

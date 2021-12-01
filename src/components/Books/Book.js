@@ -4,7 +4,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { BookContext } from "../../contexts/BookContext";
 
 const Book = ({ book }) => {
-    const { addBook } = useContext(BookContext);
+    const { addBook, cart } = useContext(BookContext);
+    const sameIsbn13 = cart.find(cartBook => cartBook.isbn13 === book.isbn13);
 
     return (
         <Card sx={{ maxWidth: 345, margin: "13px 0px" }}>
@@ -41,6 +42,7 @@ const Book = ({ book }) => {
                         style={{ width: "100%", padding: "8px 10px" }}
                         endIcon={<ShoppingCartIcon style={{ fontSize: "15px", marginBottom: "2px" }} />}
                         onClick={() => addBook(book)}
+                        disabled={sameIsbn13}
                     >
                         Add To Cart
                     </Button>

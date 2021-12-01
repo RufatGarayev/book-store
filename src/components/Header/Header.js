@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container, AppBar, Toolbar, IconButton, Typography, InputBase } from '@material-ui/core';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from "react-router-dom";
 import useStyles from './styles';
+import { BookContext } from "../../contexts/BookContext";
 
 const Header = () => {
     const classes = useStyles();
+    const { cart } = useContext(BookContext);
 
     return (
         <div className="header">
@@ -34,7 +36,7 @@ const Header = () => {
                         <Link to="/cart">
                             <IconButton style={{ color: "#fff" }}>
                                 <ShoppingCartIcon />
-                                <sup className={classes.sup}>0</sup>
+                                <sup className={classes.sup}>{cart.length}</sup>
                             </IconButton>
                         </Link>
                     </Toolbar>
