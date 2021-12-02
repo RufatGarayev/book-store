@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { toast } from 'react-toastify';
 import { BookContext } from "../../contexts/BookContext";
 
 const Book = ({ book }) => {
@@ -41,7 +42,10 @@ const Book = ({ book }) => {
                         variant="contained"
                         style={{ width: "100%", padding: "8px 10px" }}
                         endIcon={<ShoppingCartIcon style={{ fontSize: "15px", marginBottom: "2px" }} />}
-                        onClick={() => addBook(book)}
+                        onClick={() => {
+                            addBook(book);
+                            toast.success('"' + book.title + '" added to the Cart');
+                        }}
                         disabled={sameIsbn13}
                     >
                         Add To Cart

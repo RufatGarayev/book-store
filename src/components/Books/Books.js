@@ -25,7 +25,7 @@ const Books = () => {
                     loading ? (
                         <Typography
                             variant="subtitle1"
-                            style={{padding: "10px 0 511px"}}
+                            style={{ padding: "10px 0 511px" }}
                         >
                             Loading...
                         </Typography>

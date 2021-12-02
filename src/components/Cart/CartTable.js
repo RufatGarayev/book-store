@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { toast } from 'react-toastify';
 import { Container } from '@mui/material';
 import { BookContext } from "../../contexts/BookContext";
 
@@ -36,7 +37,10 @@ const CartTable = () => {
                                         <TableCell component="th" scope="row" align="center">
                                             <button
                                                 type="button"
-                                                onClick={() => removeBook(book.isbn13)}
+                                                onClick={() => {
+                                                    removeBook(book.isbn13);
+                                                    toast.error('"' + book.title + '" removed from the Cart.');
+                                                }}
                                             >
                                                 <DeleteIcon style={{ color: "#0d6efd" }} />
                                             </button>

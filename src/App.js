@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Home from './pages/Home';
 import ShoppingCart from './pages/ShoppingCart';
 import Footer from './components/Footer/Footer';
+import { ToastContainer } from 'react-toastify';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BookContextProvider from '../src/contexts/BookContext';
 
@@ -27,6 +28,7 @@ const App = () => {
           </footer>
         </div>
       </Router>
+      <ToastContainer position="bottom-left" autoClose={4000} closeOnClick />
     </BookContextProvider>
   );
 };
