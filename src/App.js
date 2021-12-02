@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
 import ShoppingCart from './pages/ShoppingCart';
+import Footer from './components/Footer/Footer';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BookContextProvider from '../src/contexts/BookContext';
 
@@ -21,6 +22,9 @@ const App = () => {
             </Routes>
           </main>
 
+          <footer>
+            <Footer />
+          </footer>
         </div>
       </Router>
     </BookContextProvider>

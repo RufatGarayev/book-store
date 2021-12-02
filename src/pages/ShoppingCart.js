@@ -10,7 +10,7 @@ const ShoppingCart = () => {
     const { cart } = useContext(BookContext);
 
     return (
-        <div className="cart-content" style={{ padding: "120px 0 70px" }}>
+        <div className="cart-content" style={{ padding: "120px 0 100px" }}>
             <Container maxWidth="lg">
                 {
                     cart.length > 0 ? (
@@ -28,7 +28,7 @@ const ShoppingCart = () => {
                     ) : (
                         <Box
                             align="center"
-                            sx={{ paddingTop: "150px" }}
+                            sx={{ padding: "150px 0 121px" }}
                         >
                             <ShoppingCartIcon sx={{ fontSize: "100px" }} />
                             <Typography style={{ margin: "15px 0 20px" }}>

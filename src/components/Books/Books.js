@@ -23,7 +23,12 @@ const Books = () => {
             <Container maxWidth="lg">
                 {
                     loading ? (
-                        <Typography variant="subtitle1">Loading...</Typography>
+                        <Typography
+                            variant="subtitle1"
+                            style={{padding: "10px 0 511px"}}
+                        >
+                            Loading...
+                        </Typography>
                     ) : (
                         filteredBooks.length > 0 ? (
                             <>
@@ -60,6 +65,7 @@ const Books = () => {
                                 flexDirection="column"
                                 alignItems="center"
                                 pt={20}
+                                pb={35}
                             >
                                 <MenuBookIcon style={{ fontSize: "66px", marginBottom: "12px" }} />
                                 <Typography variant="h6"> No books found.</Typography>
