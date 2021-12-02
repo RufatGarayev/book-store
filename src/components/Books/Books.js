@@ -4,9 +4,17 @@ import { BookContext } from "../../contexts/BookContext";
 import { Container, Grid, Box, Typography } from '@mui/material';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import Pagination from "./Pagination";
+import axios from "axios";
 
 const Books = () => {
-    const { filteredBooks, loading, getBooks } = useContext(BookContext);
+    const [books, setBooks] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const { searchQuery } = useContext(BookContext);
+
+    const filteredBooks = books.filter((book) => {
+        return book.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+    });
+
     const [currentPage, setCurrentPage] = useState(1);
     const [booksPerPage] = useState(8);
     const indexOfLastBook = currentPage * booksPerPage;
@@ -15,6 +23,15 @@ const Books = () => {
     const totalPagesNum = Math.ceil(filteredBooks.length / booksPerPage);
 
     useEffect(() => {
+        const getBooks = () => {
+            setLoading(true);
+
+            axios
+                .get("https://api.itbook.store/1.0/new")
+                .then(response => { setBooks(response.data.books); setLoading(false); })
+                .catch(error => { console.log(error); setLoading(true); })
+        };
+
         getBooks();
     }, []);
 
