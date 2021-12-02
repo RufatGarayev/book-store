@@ -8,7 +8,7 @@ import { BookContext } from "../../contexts/BookContext";
 
 const Header = () => {
     const classes = useStyles();
-    const { cart } = useContext(BookContext);
+    const { cart, searchBook } = useContext(BookContext);
 
     return (
         <div className="header">
@@ -31,6 +31,7 @@ const Header = () => {
                                     input: classes.inputInput,
                                 }}
                                 inputProps={{ 'aria-label': 'search' }}
+                                onChange={searchBook}
                             />
                         </div>
                         <Link to="/cart">
